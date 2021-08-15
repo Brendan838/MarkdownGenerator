@@ -3,7 +3,7 @@
 
 ## Description 
 
-Hello! This is my week 9 project for the U of M coding Bootcamp. This project uses Node.js and the npm "inquirer" library to generate readme files using the command line. Click 
+Hello! This is my week 9 project for the U of M coding Bootcamp. This project uses Node.js and the npm "inquirer" library to generate readme files using the command line. 
 
 
 ## Table of Contents
