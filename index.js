@@ -27,7 +27,7 @@ const questions = [
 	type: "list",
 	name: "license",
 	message: "What kind of license should your project have?",
-	choices: ["MIT", "ISC", "Apache License 2.0", "GNU GPLv2", "GNU GPLv3"],
+	choices: ["MIT", "ISC", "Apache License 2.0", "GNU GPLv3"],
 	default: "None"
 	},
 	{
@@ -64,6 +64,8 @@ console.log(err)
 })
 }
 
+//Creating function for generating license
+
 //main inquirer function (prompts)
 inquirer.prompt(questions).then((responseObj) => {
 	
@@ -76,10 +78,29 @@ inquirer.prompt(questions).then((responseObj) => {
 	var tests = responseObj.tests
 	var repoInfo = responseObj.repoInfo
 	var repoCont = responseObj.repoCont
-	
+	var badge;
+	function licenseBadge(license){
+		switch(license){
+		case "MIT":
+		badge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+		break;
+		case "ISC":
+		badge = `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`
+		break;
+		case "Apache License 2.0":
+		badge = `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+		break;
+		case "GNU GPLv3":
+		badge = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+		break;
+		}
+	}
+	licenseBadge(license);
 
 	var filebody = 
 `# ${projectName}\n
+
+${badge}\n
 
 ## Description \n
 ${description}\n
